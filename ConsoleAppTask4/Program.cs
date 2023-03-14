@@ -26,12 +26,16 @@
 
             //Tapsiriq11();
 
-            Tapsiriq12();
+            //Tapsiriq12();
+
+            //Tapsiriq13();
+
+            Tapsiriq14();
 
             //Tapsiriq15();
         }
 
-    
+     
 
         private static void Tapsiriq15()
         {
@@ -161,6 +165,65 @@
 
                 Console.WriteLine($"Daxil etdiyin eded ilin {ay}-ci ayina dushur ve hemin ayin {gun}-ci gunu olur.");
                 Console.WriteLine($"Hemin güne uygun burc: {burc} burcudur.");
+            }
+        }
+
+        private static void Tapsiriq14()
+        {
+        /*Bir eded daxil et. Bu eded maksimum 8 reqemli ola biler
+         ( bu o demekdirki 1,2,3,4,5,6,7 reqemlide ola biler)
+            Bu ededin evvelin 1 reqemini artir.*/
+
+        l1:
+            Console.Write("Eded daxil edin, maximum 8 reqemli ola biler: ");
+            int number;
+            if (!int.TryParse(Console.ReadLine(), out number))
+            {
+                goto l1;
+            }
+            if (number < 100000000)
+            {
+                int lastDigit = number / 10000000;
+                number = number % 100000000;
+                lastDigit = number + 1 * 100000000;
+
+                Console.WriteLine($"Evveline 1 artirilmis eded:{lastDigit}");
+            }
+            if (number < 100000000)
+            {
+                int lastDigit = number / 10000000;
+                number = number % 100000000;
+                lastDigit = number + 1 * 10000000;
+
+                Console.WriteLine($"Evveline 1 artirilmis eded:{lastDigit}");
+            }
+        }
+
+        private static void Tapsiriq13()
+        {
+            /*Verilmish 7 reqemli eded polindromdursa  o zaman onun daxilnde nece dene 0 reqemi oldugunu tap?*/
+
+            int number = ReadNumber(7);
+            Console.WriteLine(number);
+
+            int res = 0;
+            int sum = 0;
+            int opposide;
+
+            opposide = number;
+            while (number > 0)
+            {
+                res = number % 10;
+                sum = (sum * 10) + res;
+                number = number / 10;
+            }
+            if (opposide == sum)
+            {
+                Console.Write("Polindrom eded.");
+            }
+            else
+            {
+                Console.Write("Polindrom olmayan eded");
             }
         }
 
