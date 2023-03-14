@@ -16,12 +16,20 @@
 
             //Tapsiriq6();
 
+            //Tapsiriq7();
+
+            //Tapsiriq8();
+
             //Tapsiriq9();
 
-            //Tapsiriq10();
+            Tapsiriq10();
+
+            //Tapsiriq11();
 
             //Tapsiriq15();
         }
+
+     
 
         private static void Tapsiriq15()
         {
@@ -154,22 +162,55 @@
             }
         }
 
+        private static void Tapsiriq11()
+        {
+            /* Verilmish 6 reqemli ededin ilk 3 reqeminin cemi son 3 reqeminin cemine beraberdirse
+                    o zaman
+                bu ededdin ilk 2 reqemini son 2 reqemine yapishdir.
+                   Neticenin ustune ortaya dushen 2 reqemini gel.*/
+
+            int number = ReadNumber(6);
+            Console.WriteLine(number);
+
+            int firstnumber = (number / 1000);
+            int lastnumber = (number % 1000);
+
+            if (firstnumber == lastnumber)
+            {
+                int firstTwoDigit = number / 10000;
+                int lastTwoDigit = number % 100;
+                int mediumDigit = (number / 100) % 100;
+                
+                int combineDigit = Convert.ToInt32($"{firstTwoDigit}{lastTwoDigit}");
+                Console.WriteLine(combineDigit);
+
+                Console.WriteLine(mediumDigit);
+
+                int sum = combineDigit + mediumDigit;
+                Console.WriteLine(sum);
+            }
+            else
+            {
+                Console.WriteLine("ilk 3 reqem son 3 reqeme beraber deyil.");
+            }
+        }
+
         private static void Tapsiriq10()
         {
             /* IF operatoru ile yoxla.
                   6 dene eded verilib. Bu ededlerden hansi en boyukdur.*/
 
 
-            int[] sayi = { 5, 54, 8, 45, 38, 90 };
+            int[] number = { 5, 54, 8, 145, 38, 90 };
 
-            int max = sayi[0];
+            int max = number[0];
 
-            for (int i = 0; i < sayi.Length; i++)
+            for (int i = 0; i < number.Length; i++)
             {
 
-                if (sayi[i] > max)
+                if (number[i] > max)
                 {
-                    max = sayi[i];
+                    max = number[i];
 
                 }
 
@@ -239,14 +280,106 @@
             }
         }
 
+        private static void Tapsiriq8()
+        {
+
+        /*SWITCH operatoru ile yoxla.
+      Verilmish ededdin sonuncu reqemi
+         1 olarsa-"I gun" sozunu
+        2 olarsa-"II gun" sozunu
+        ...
+        7 olarsa-"VI gun" sozunu yaz*/
+
+        l1:
+            Console.WriteLine("Eded daxil edin: ");
+            int number;
+
+            if (!int.TryParse(Console.ReadLine(), out number))
+            {
+                goto l1;
+            }
+
+            switch (number % 10)
+            {
+                case 1:
+                    Console.WriteLine("1 gun");
+                    break;
+
+                case 2:
+                    Console.WriteLine("2 gun");
+                    break;
+
+                case 3:
+                    Console.WriteLine("3 gun");
+                    break;
+
+                case 4:
+                    Console.WriteLine("4 gun");
+                    break;
+
+                case 5:
+                    Console.WriteLine("5 gun");
+                    break;
+
+                case 6:
+                    Console.WriteLine("6 gun");
+                    break;
+
+                case 7:
+                    Console.WriteLine("7 gun");
+                    break;
+
+                default:
+                    Console.WriteLine("Sonuncu reqem 1 ve 7 arasinda olan reqem deyil");
+                    break;
+
+            }
+        }
+
+        private static void Tapsiriq7()
+        {
+            /*Verilmish 3 reqemli ededdin reqemleri cemi I reqemin kvadratina beraberdirmi? 
+             Beli ve Xeyr cavabini yaz ekrana*/
+
+            int number = ReadNumber(3);
+            Console.WriteLine(number);
+
+            int firstDigit = number / 100;
+            int secondDigit = (number / 10) % 10;
+            int thirdDigit = number % 10;
+
+            int sum = firstDigit + secondDigit + thirdDigit;
+
+            if (sum == firstDigit * firstDigit)
+            {
+                Console.WriteLine("Beli");
+            }
+            else
+            {
+                Console.WriteLine("Xeyr");
+            }
+        }
+
         private static void Tapsiriq6()
         {
             /*Verilmish 3 reqemli ededdin I ve III reqemlerinin cemi II reqeme beraberdirmi?  Beli ve Xeyr cavabini yaz ekrana*/
 
-            double number = ReadNumber(3);
+            int number = ReadNumber(3);
             Console.WriteLine(number);
 
+            int firstDigit = number / 100;
+            int secondDigit = (number / 10) % 10;
+            int thirdDigit = number % 10;
 
+
+            if (firstDigit + thirdDigit == secondDigit)
+            {
+                Console.WriteLine("Beli");
+            }
+            else
+            {
+                Console.WriteLine("Xeyir");
+            }
 
 
         }
@@ -255,8 +388,21 @@
         {
             /*Verilmish 2 reqemli ededdin reqemleri cemi cut ededdirse o zaman
                  hemin 2 reqemli ededdin reqemlerinin hasilini ekrana cixart.*/
+
             int number = ReadNumber(2);
             Console.WriteLine(number);
+
+            int firstDigit = number / 10;
+            int secondDigit = number % 10;
+
+            if ((firstDigit + secondDigit) % 2 == 0)
+            {
+                Console.WriteLine(firstDigit * secondDigit);
+            }
+            else
+            {
+                Console.WriteLine("Cut eded deyil");
+            }
 
 
         }
@@ -268,8 +414,10 @@
             int number = ReadNumber(2);
             Console.WriteLine(number);
 
+            int firstDigit = number / 10;
+            int secondDigit = number % 10;
 
-            if (number == 0)
+            if (firstDigit == secondDigit)
             {
                 Console.WriteLine("Beli");
             }
