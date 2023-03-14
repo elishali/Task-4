@@ -22,14 +22,16 @@
 
             //Tapsiriq9();
 
-            Tapsiriq10();
+            //Tapsiriq10();
 
             //Tapsiriq11();
+
+            Tapsiriq12();
 
             //Tapsiriq15();
         }
 
-     
+    
 
         private static void Tapsiriq15()
         {
@@ -160,6 +162,27 @@
                 Console.WriteLine($"Daxil etdiyin eded ilin {ay}-ci ayina dushur ve hemin ayin {gun}-ci gunu olur.");
                 Console.WriteLine($"Hemin güne uygun burc: {burc} burcudur.");
             }
+        }
+
+        private static void Tapsiriq12()
+        {
+            /* Verilmihs 6 reqemli ededdin evveline ve axirina 8 artir.
+              Alinan neticenin ilk 4 reqemi ile son 4 reqeminin yerini deyish
+              Neticenin tek yerde dayanan reqemlerini 0 reqemi ile evez et.*/
+
+            int number = ReadNumber(6);
+            Console.WriteLine(number);
+
+            int beforeDigit = number + 8000000;
+            int flowsDigit = beforeDigit * 10 + 8;
+            int beforeForDigit = flowsDigit / 10000;
+            int flawsForDigit = flowsDigit % 10000;
+            int changeDigit = Convert.ToInt32($"{flawsForDigit}{beforeForDigit}");
+
+            Console.WriteLine($"{flowsDigit}");
+            Console.WriteLine(beforeForDigit);
+            Console.WriteLine(flawsForDigit);
+            Console.WriteLine(changeDigit);
         }
 
         private static void Tapsiriq11()
