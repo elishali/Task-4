@@ -30,12 +30,48 @@
 
             //Tapsiriq13();
 
-            Tapsiriq14();
+            //Tapsiriq14();
 
             //Tapsiriq15();
+
+            Tapsiriq16();
         }
 
-     
+        private static void Tapsiriq16()
+        {
+        /*Verilmish 6 reqemli ededde nece unikal reqem var ?
+        ( UNIKAL- Ededin daxilde her reqemden bir numayende secilecek.
+        Yekunda nece numayende olacaq?)*/
+
+        l1:
+            Console.Write("Eded daxil edin: ");
+            int num;
+            if (!int.TryParse(Console.ReadLine(), out num))
+            {
+                goto l1;
+            }
+            int[] digits = {};
+            int digit;
+            int len;
+
+            while (num > 0)
+            {
+                digit = num % 10;
+
+                if (Array.IndexOf(digits,digit)==-1) 
+                {
+                    len = digits.Length;
+
+                    Array.Resize(ref digits, len +1);
+                    digits[len] = digit;
+                }
+                num = num / 10;
+            }
+            foreach (var unDig in digits)
+            {
+                Console.WriteLine(unDig);
+            }
+        }
 
         private static void Tapsiriq15()
         {
